@@ -16,6 +16,8 @@ class Artist extends Model
         'cache_base',
         'imagem',
     ];
+
+    // Relationship with Contratacao model
     public function contratacoes()
     {
         return $this->hasMany(Contratacao::class);

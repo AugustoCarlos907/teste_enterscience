@@ -12,6 +12,7 @@ class ArtistSeeder extends Seeder
      */
     public function run(): void
     {
+        // Sample artists data API
         $artists = [
             [
                 'name' => 'The Beatles',

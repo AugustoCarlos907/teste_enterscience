@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Binding interfaces to their respective repositories
         $this->app->bind(ArtistInterface::class,ArtistRepository::class);
         $this->app->bind(ContratacaoInterface::class,ContratacaoRepository::class);
     }

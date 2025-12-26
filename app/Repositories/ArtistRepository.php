@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Request;
 
 class ArtistRepository implements ArtistInterface
 {
+    // Get all artists with optional filters and pagination
+    
     public function getArtists( $filters = [] , $perPage){
 
-        // return Artist::all();
         $query = Artist::query();
 
         if(!empty($filters['name'])){

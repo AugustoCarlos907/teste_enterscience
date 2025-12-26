@@ -7,8 +7,8 @@ use App\Repositories\Interfaces\ContratacaoInterface;
 
 class ContratacaoService{
 
+    // Dependency Injection of the ContratacaoRepository
     protected $contratacaoRepository;
-
     public function __construct( ContratacaoInterface $contratacaoRepository){
         $this->contratacaoRepository = $contratacaoRepository;
     }

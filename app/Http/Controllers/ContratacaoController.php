@@ -9,16 +9,20 @@ use Illuminate\Http\Request;
 
 class ContratacaoController extends Controller
 {
+    // Dependency Injection of the ContratacaoService
     protected $contratacaoService;
     public function __construct(ContratacaoService $contratacaoService)
     {
         $this->contratacaoService = $contratacaoService;
     }
 
+    // List contratacoes with pagination
     public function index(){
         return $this->contratacaoService->getContratacoes(10 );
     }
+    
 
+    // Store a new contratacao
     public function store(StoreContratacaoRequest $request){
         try {
         $data = $request->validated();
@@ -31,6 +35,7 @@ class ContratacaoController extends Controller
         }
     }
 
+    // Destroy a contratacao by ID
     public function destroy(int $id){
         return $this->contratacaoService->delete($id);
     }

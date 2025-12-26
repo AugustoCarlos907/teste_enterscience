@@ -22,6 +22,7 @@ class Contratacao extends Model
         'cache' => 'decimal:2',
     ];
 
+    // Relationship with Artist model
     public function artist()
     {
         return $this->belongsTo(Artist::class);

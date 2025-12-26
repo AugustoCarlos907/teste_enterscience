@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Ramsey\Uuid\Type\Decimal;
 
 class Contratacao extends Model
 {
@@ -18,9 +19,10 @@ class Contratacao extends Model
     ];
 
     protected $casts = [
-        'data_evento' => 'date',
+        // 'data_evento' => 'date|Y-m-d',
         'cache' => 'decimal:2',
     ];
+
 
     // Relationship with Artist model
     public function artist()

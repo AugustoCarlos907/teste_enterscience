@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use ApiResponse;
 use App\Http\Requests\StoreContratacaoRequest;
+use App\Http\Response\ApiResponse;
+use App\Models\Artist;
 use App\Services\ContratacaoService;
 use Illuminate\Http\Request;
 
@@ -18,17 +19,24 @@ class ContratacaoController extends Controller
 
     // List contratacoes with pagination
     public function index(){
-        return $this->contratacaoService->getContratacoes(10 );
+        $contratacoes = $this->contratacaoService->getContratacoes(10 );
+        return response()->json($contratacoes);
     }
     
-
     // Store a new contratacao
-    public function store(StoreContratacaoRequest $request){
+    public function store(StoreContratacaoRequest $request ){
         try {
         $data = $request->validated();
+        $artist = Artist::findOrFail($data['artist_id']);
+
+        // Validate cache base before creating contratacao
+        if($data['cache'] < $artist->cache_base){
+            return ApiResponse::error('Cache base insuficiente para a contratação.', 400);
+        }
+
         $contratacao = $this->contratacaoService->store($data);
 
-        return ApiResponse::success('contratacao criada com sucesso', $contratacao);
+        return ApiResponse::success($contratacao, 'contratacao criada com sucesso', 200);
         
         } catch (\Exception $e) {
            return ApiResponse::error('Erro ao criar contratacao: ' . $e->getMessage(), 500);

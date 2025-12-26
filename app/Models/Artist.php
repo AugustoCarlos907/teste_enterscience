@@ -17,6 +17,12 @@ class Artist extends Model
         'imagem',
     ];
 
+    // Acessor to get formatted cache_base in Brazilian Real
+    // public function getCacheBaseAttribute()
+    // {
+    //     return 'R$ ' . number_format($this->cache_base, 2, ',', '.');
+    // }
+
     // Relationship with Contratacao model
     public function contratacoes()
     {

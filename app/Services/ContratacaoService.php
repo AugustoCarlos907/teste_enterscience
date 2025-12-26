@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Repositories\Interfaces\ContratacaoInterface;
+use Illuminate\Http\JsonResponse;
 
 class ContratacaoService{
 
@@ -28,6 +29,4 @@ class ContratacaoService{
     public function delete(int $id){
         return $this->contratacaoRepository->delete($id);
     }
-
-
 }

@@ -26,7 +26,7 @@ class StoreContratacaoRequest extends FormRequest
             'nome' => 'required|string|max:255',
             'data_evento' => 'required|date|after:today',
             'endereco' => 'nullable|string',
-            'cache' => 'nullable|numeric|min:0',
+            'cache' => 'required|numeric|min:0',
         ];
     }
 }

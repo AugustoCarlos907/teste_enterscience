@@ -6,12 +6,15 @@ use App\Models\Artist;
 use App\Models\Contratacao;
 use App\Repositories\Interfaces\ContratacaoInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ContratacaoRepository implements ContratacaoInterface
 {
     // Get all contratacoes with pagination
-    public function getContratacoes($perPage): Collection{
-        return Contratacao::orderBy('created_at', 'desc')
+    public function getContratacoes($perPage): LengthAwarePaginator
+{
+        return Contratacao::with('artist')
+                            ->orderBy('created_at', 'desc')
                             ->paginate($perPage);
     }
 

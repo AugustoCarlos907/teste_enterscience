@@ -13,11 +13,34 @@ function ContratacaoForm({ artista, voltar }) {
 
     api.post("/contratacoes", {
       nome,
-      artista_id: artista.id,
-      cache,
+      artist_id: artista.id,
+      cache: cache === "" ? null : Number(cache),
       data_evento: dataEvento,
       endereco
-    }).then(() => setSucesso(true));
+    }).then(() => setSucesso(true))
+    .catch(error => {
+  if (error.response) {
+    // Error on server response
+    console.log("STATUS:", error.response.status);
+    console.log("DADOS:", error.response.data);
+
+    alert(
+      error.response.data.message ||
+      "Erro ao processar a contratação"
+    );
+  } else if (error.request) {
+    // No response received from server
+    console.log("REQUEST:", error.request);
+    alert("Servidor indisponível. Tente novamente.");
+  } else {
+    // Other errors
+    console.log("ERRO:", error.message);
+    alert("Erro inesperado.");
+  }
+});
+
+    
+
   }
 
   if (sucesso) {
@@ -44,8 +67,8 @@ function ContratacaoForm({ artista, voltar }) {
 
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label">Nome *</label>
-                <input className="form-control" value={nome} onChange={e => setNome(e.target.value)} />
+                <label className="form-label">Nome - Cliente</label>
+                <input className="form-control" value={nome} onChange={e => setNome(e.target.value)} required />
               </div>
 
               <div className="mb-3">
@@ -55,17 +78,19 @@ function ContratacaoForm({ artista, voltar }) {
 
               <div className="mb-3">
                 <label className="form-label">Cachê</label>
-                <input className="form-control" value={cache} onChange={e => setCache(e.target.value)} />
+                <input type="number" className="form-control" value={cache} onChange={e => setCache(e.target.value)}
+                placeholder={`no minimo deve ser ${artista.cache_base} R$`}
+                 required />
               </div>
 
               <div className="mb-3">
                 <label className="form-label">Data do Evento *</label>
-                <input type="date" className="form-control" value={dataEvento} onChange={e => setDataEvento(e.target.value)} />
+                <input type="date" className="form-control" value={dataEvento} onChange={e => setDataEvento(e.target.value)} required />
               </div>
 
               <div className="mb-3">
                 <label className="form-label">Endereço</label>
-                <input className="form-control" value={endereco} onChange={e => setEndereco(e.target.value)} />
+                <input className="form-control" value={endereco} onChange={e => setEndereco(e.target.value)} required />
               </div>
 
               <div className="d-flex justify-content-between">

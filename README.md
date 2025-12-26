@@ -25,7 +25,7 @@ Aplicação web para contratação de artistas para shows particulares.
 ### 1. Clonar o repositório
 
 ```sh
-git https://github.com/AugustoCarlos907/teste_enterscience.git
+git clone https://github.com/AugustoCarlos907/teste_enterscience.git
 
 ### 2. Backend (Laravel)
 

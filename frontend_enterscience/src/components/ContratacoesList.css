@@ -1,0 +1,81 @@
+/* ContratacoesList.css - estilos modernos para listagem de contratações */
+
+.contratacao-card {
+  background: linear-gradient(120deg, #f1f5f9 70%, #e0e7ff 100%);
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px 0 rgba(80,80,120,0.10);
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  transition: box-shadow 0.22s, transform 0.22s;
+  position: relative;
+  overflow: hidden;
+  will-change: box-shadow, transform;
+}
+.contratacao-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(80,80,120,0.18), 0 0 12px 2px #a5b4fc33;
+  transform: translateY(-6px) scale(1.015);
+}
+.contratacao-card .contratacao-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.contratacao-card .contratacao-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(80,80,120,0.10);
+  background: #fff;
+}
+.contratacao-card .contratacao-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3730a3;
+  margin-bottom: 0.1rem;
+}
+.contratacao-card .contratacao-badge {
+  font-size: 0.95rem;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.18rem 0.7rem;
+  margin-left: 0.5rem;
+}
+.contratacao-card .contratacao-info {
+  font-size: 1.01rem;
+  color: #334155;
+  margin-bottom: 0.2rem;
+}
+.contratacao-card .contratacao-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+.contratacao-card .btn-action {
+  font-size: 0.97rem;
+  border-radius: 0.6rem;
+  padding: 0.32rem 1.1rem;
+  transition: background 0.18s, color 0.18s;
+}
+.contratacao-card .btn-action.btn-outline-secondary:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+/* Animação de entrada */
+.contratacao-fade-in {
+  animation: contratacaoFadeIn 0.7s cubic-bezier(.4,2,.6,1);
+}
+@keyframes contratacaoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

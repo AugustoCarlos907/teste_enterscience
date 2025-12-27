@@ -19,7 +19,7 @@ class ContratacaoController extends Controller
 
     // List contratacoes with pagination
     public function index(){
-        $contratacoes = $this->contratacaoService->getContratacoes(10 );
+        $contratacoes = $this->contratacaoService->getContratacoes(4 );
         return response()->json($contratacoes);
     }
     

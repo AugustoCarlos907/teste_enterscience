@@ -91,7 +91,7 @@ function ArtistasList({ onSelectArtista }) {
               <div className="card-body">
                 <h5 className="fw-bold ms-1">{artista.name}</h5>
                 <span className="badge bg-secondary">{artista.tipo}</span>
-                <div className="d-flex justify-content-center gap-2 mt-3">
+                <div className="d-flex justify-content-center gap-2 mt-3 mb-2">
                   <button className="btn btn-primary btn-sm" onClick={() => onSelectArtista(artista)}>
                     Contratar
                   </button>

@@ -8,7 +8,7 @@ Aplicação web para contratação de artistas para shows particulares.
 - Listagem de resultados para seleção
 - Formulário de contratação (Nome, Artista, Cachê, Data do evento, Endereço)
 - Registro da contratação (Banco de Dados MySQL)
-- Consulta de contratações anteriores
+- Consulta de contratações anteriores ou repetir o processo de contratação
 - Backend em Laravel (API própria)
 - Frontend em React 
 

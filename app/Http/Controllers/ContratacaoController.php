@@ -35,8 +35,9 @@ class ContratacaoController extends Controller
         }
 
         $contratacao = $this->contratacaoService->store($data);
+        $contratacao->load('artist');
 
-        return ApiResponse::success($contratacao, 'contratacao criada com sucesso', 200);
+        return ApiResponse::success($contratacao, 'Contratação criada com sucesso.', 201);
         
         } catch (\Exception $e) {
            return ApiResponse::error('Erro ao criar contratacao: ' . $e->getMessage(), 500);

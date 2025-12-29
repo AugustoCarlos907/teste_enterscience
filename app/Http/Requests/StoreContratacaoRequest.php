@@ -24,7 +24,7 @@ class StoreContratacaoRequest extends FormRequest
         return [
             'artist_id' => 'required|exists:artists,id',
             'nome' => 'required|string|max:255',
-            'data_evento' => 'required|date|after:today',
+            'data_evento' => 'required|date|after_or_equal:today',
             'endereco' => 'nullable|string',
             'cache' => 'required|numeric|min:0',
         ];

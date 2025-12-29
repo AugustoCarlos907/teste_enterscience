@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
 
-function ContratacaoForm({ artista, voltar }) {
+function ContratacaoForm({ artista, voltar, irParaLista }) {
   const [nome, setNome] = useState("");
   const [cache, setCache] = useState("");
   const [dataEvento, setDataEvento] = useState("");
@@ -49,9 +49,14 @@ function ContratacaoForm({ artista, voltar }) {
         <div className="alert alert-success">
           <h4>Contratação realizada com sucesso </h4>
         </div>
-        <button className="btn btn-primary" onClick={voltar}>
-          Nova contratação
-        </button>
+        <div className="d-flex justify-content-center gap-3 mt-3">
+          <button className="btn btn-primary" onClick={voltar}>
+            Nova contratação
+          </button>
+          <button className="btn btn-outline-info" onClick={irParaLista}>
+            Consultar contratações
+          </button>
+        </div>
       </div>
     );
   }

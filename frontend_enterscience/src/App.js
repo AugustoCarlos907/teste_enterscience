@@ -56,6 +56,10 @@ function App() {
               <ContratacaoForm
                 artista={artistaSelecionado}
                 voltar={() => setArtistaSelecionado(null)}
+                irParaLista={() => {
+                  setAbaAtiva("lista");
+                  setArtistaSelecionado(null);
+                }}
               />
             )}
           </>
